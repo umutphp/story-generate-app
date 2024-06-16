@@ -1,0 +1,12 @@
+Django>=3.0,<4.0
+psycopg2>=2.8
+datasets~=2.19.2
+transformers~=4.41.2
+nltk~=3.8.1
+torch
+torchvision
+accelerate
+ollama~=0.2.1
+django-json-widget>=2.0.1
+requests~=2.32.3
+beautifulsoup4~=4.12.3

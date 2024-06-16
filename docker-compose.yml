@@ -1,0 +1,46 @@
+services:
+  db:
+    image: postgres
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build:
+      context: .
+      args:
+        - DEV:true
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - dev-static-data:/vol/web
+      - dev-hf-data:/transformers
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - OLLAMA_HOST=ollama
+    depends_on:
+      - db
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - 11434:11434
+    volumes:
+      - ~/.ollama:/root/.ollama
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    restart: always
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+      - OLLAMA_HOST=ollama
+
+volumes:
+  dev-db-data:
+  dev-static-data:
+  dev-hf-data:
