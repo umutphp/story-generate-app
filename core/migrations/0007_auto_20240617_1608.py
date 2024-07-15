@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0006_story_story_trigger'),
+        ("core", "0006_story_story_trigger"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='story',
-            name='area',
-            field=models.CharField(blank=True, default='', max_length=256),
+            model_name="story",
+            name="area",
+            field=models.CharField(blank=True, default="", max_length=256),
         ),
         migrations.AlterField(
-            model_name='story',
-            name='city',
-            field=models.CharField(blank=True, default='', max_length=256),
+            model_name="story",
+            name="city",
+            field=models.CharField(blank=True, default="", max_length=256),
         ),
     ]

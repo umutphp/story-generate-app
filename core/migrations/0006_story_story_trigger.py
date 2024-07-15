@@ -7,13 +7,18 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0005_rename_characters_storytrigger_setting'),
+        ("core", "0005_rename_characters_storytrigger_setting"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='story',
-            name='story_trigger',
-            field=models.ForeignKey(default=None, null=True, on_delete=django.db.models.deletion.CASCADE, to='core.storytrigger'),
+            model_name="story",
+            name="story_trigger",
+            field=models.ForeignKey(
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="core.storytrigger",
+            ),
         ),
     ]
