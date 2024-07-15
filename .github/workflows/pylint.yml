@@ -20,4 +20,4 @@ jobs:
         pip install pylint pylint-django
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --load-plugins pylint_django
+        pylint $(git ls-files '*.py') --load-plugins=pylint_django
